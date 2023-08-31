@@ -1,0 +1,197 @@
+WindowManager:
+    MainWindow:
+    ConnWindow:
+    StatusWindow:
+    GraphWindow:
+
+<MainWindow>
+    name: "Main"
+    GridLayout:
+        cols: 1
+        rows: 5
+        Label:
+            text: root.app_name
+            font_size: sp(root.font_size_sp)
+            color: root.app_name_color
+            canvas.before:
+                Color:
+                    rgba: root.app_background_color
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+        GridLayout:
+            cols: 1
+            Label:
+                text: "Proponents: @Ken, Chesther, Jazzel, Johnli"
+
+                canvas.before:
+                    Color:
+                        rgba: root.main_background_color
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+        BoxLayout:
+            orientation: 'horizontal'
+            canvas.before:
+                Color:
+                    rgba: root.main_background_color
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+            AnchorLayout:
+                Button:
+                    background_normal: 'connection_icon_normal.png'
+                    background_down: 'connection_icon_down.png'
+                    size_hint: None, None
+                    size: dp(150), dp(150)
+                    #text: root.button_conn
+                    #anchor_x: 'center'
+                    #anchor_y: 'center'
+                    #background_color: root.button_color
+                    #color: root.button_text_color
+                    #font_size: sp(root.button_font_size_sp)
+                    #size_hint: dp(root.button_size_hint_dp[0]), dp(root.button_size_hint_dp[1])
+                    #size: dp(root.button_size_dp[0]), dp(root.button_size_dp[1])
+                    on_release: app.root.current = 'Conn'
+
+            BoxLayout:
+                orientation: 'horizontal'
+                AnchorLayout:
+                    Button:
+                        background_normal: 'status_icon_normal.png'
+                        background_down: 'status_icon_down.png'
+                        size_hint: None, None
+                        size: dp(150), dp(150)
+
+                        #text: root.button_status
+                        #background_color: root.button_color
+                        #color: root.button_text_color
+                        #font_size: sp(root.button_font_size_sp)
+                        #size_hint: dp(root.button_size_hint_dp[0]), dp(root.button_size_hint_dp[1])
+                        #size: dp(root.button_size_dp[0]), dp(root.button_size_dp[1])
+
+                        on_release: app.root.current = 'Status'
+        BoxLayout:
+            orientation: 'horizontal'
+            canvas.before:
+                Color:
+                    rgba: root.main_background_color
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+            AnchorLayout:
+                anchor_x: 'center'
+                anchor_y: 'center'
+                Button:
+                    background_normal: 'graph_icon_normal.png'
+                    background_down: 'graph_icon_down.png'
+                    size_hint: None, None
+                    size: dp(150), dp(150)
+
+                    #text: root.button_graph
+                    #background_color: root.button_color
+                    #color: root.button_text_color
+                    #font_size: sp(root.button_font_size_sp)
+                    #size_hint: dp(root.button_size_hint_dp[0]), dp(root.button_size_hint_dp[1])
+                    #size: dp(root.button_size_dp[0]), dp(root.button_size_dp[1])
+
+                    on_release: app.root.current = 'Graph'
+            BoxLayout:
+                orientation: 'horizontal'
+                AnchorLayout:
+                    anchor_x: 'center'
+                    anchor_y: 'center'
+                    Button:
+                        background_normal: 'exit_icon_normal.png'
+                        background_down: 'exit_icon_down.png'
+                        size_hint: None, None
+                        size: dp(150), dp(150)
+                        on_release: app.exit_app()
+
+
+
+
+<ConnWindow>:
+    name: "Conn"
+    GridLayout:
+        cols:2
+        rows:7
+        canvas.before:
+            Color:
+                rgba: root.background_color_conn
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        Label:
+            text: root.app_name_conn
+            font_size: dp(root.font_size_dp_conn)
+            color: root.app_name_color_conn
+        Label:
+            text: " "
+        Label:
+            text: "LAN Connection"
+        Label:
+            text: " "
+        Label:
+            text: "WiFi Name: "
+        TextInput:
+            id: LanSSID
+        Label:
+            text: "WiFi Password: "
+        TextInput:
+            id: LanPass
+        Label:
+            text: "WAN Connection"
+
+        Label:
+            text: " "
+        Label:
+            text: "WiFi Name: "
+        TextInput:
+            id: WanSSID
+        Label:
+            text: "WiFi Password: "
+        TextInput:
+            id: WanPass
+
+
+<StatusWindow>
+    name: "Status"
+    GridLayout:
+        cols: 2
+        rows: 7
+        Label:
+            text: root.status_name
+        Label:
+            text: " "
+        Label:
+            text: root.sensor1
+        Label:
+            text: " "
+
+        Label:
+            text: root.sensor2
+        Label:
+            text: " "
+        Label:
+            text: root.sensor3
+        Label:
+            text: " "
+        Label:
+            text: root.sensor4
+        Label:
+            text: " "
+        Label:
+            text: root.sensor5
+        Label:
+            text: " "
+
+
+<GraphWindow>
+    name: "Graph"
+    GridLayout:
+        rows: 4
+        Label:
+            text: "Graph Page"
+
+
